@@ -69,7 +69,7 @@ public class TopTenHashTag extends Configured implements Tool {
 
         args = new GenericOptionsParser(conf, args).getRemainingArgs();
 
-        Job job = Job.getInstance(conf);
+        Job job = Job.getInstance(conf, "TopTenHashTag");
 
         job.setJarByClass(TopTenHashTag.class);
         job.setMapperClass(TopTenMapper.class);

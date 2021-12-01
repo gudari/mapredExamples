@@ -49,8 +49,6 @@ public class SalesCountry {
             JobClient.runJob(jobConf);
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            myClient.close();
         }
     }
 }

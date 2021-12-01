@@ -86,9 +86,7 @@ public class UniqueListeners {
         FileOutputFormat.setOutputPath(job, new Path(args[1]));
         System.exit(job.waitForCompletion(true) ? 0 : 1);
         org.apache.hadoop.mapreduce.Counters counters = job.getCounters();
-        System.out.println("No. of Invalid Records :"
-        + counters.findCounter(COUNTERS.INVALID_RECORD_COUNT)
-        .getValue());
+        System.out.println("No. of Invalid Records: " + counters.findCounter(COUNTERS.INVALID_RECORD_COUNT).getValue());
     }
     
 }

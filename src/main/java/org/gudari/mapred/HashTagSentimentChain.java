@@ -21,7 +21,7 @@ import org.apache.hadoop.fs.Path;
 
 public class HashTagSentimentChain extends Configured implements Tool{
 
-    public class LowerCaseMapper extends Mapper<LongWritable, Text, IntWritable, Text>{
+    public static class LowerCaseMapper extends Mapper<LongWritable, Text, IntWritable, Text>{
         private Text lowerCased = new Text();
 
         @Override
@@ -40,7 +40,7 @@ public class HashTagSentimentChain extends Configured implements Tool{
         conf.set("job.positivewords.path", args[2]);
         conf.set("job.negativewords.path", args[3]);
 
-        Job job = Job.getInstance(conf);
+        Job job = Job.getInstance(conf, "HashTagSentimentChain");
         job.setJarByClass(HashTagSentimentChain.class);
 
         Configuration lowerCaseMapperConf = new Configuration(false);
